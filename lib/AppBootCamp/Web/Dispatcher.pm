@@ -2,28 +2,32 @@ package AppBootCamp::Web::Dispatcher;
 use strict;
 use warnings;
 use utf8;
+use DDP;
+use CGI;
 use Amon2::Web::Dispatcher::RouterBoom;
+use AppBootCamp::Repository::User;
 
-any '/' => sub {
-    my ($c) = @_;
-    my $counter = $c->session->get('counter') || 0;
-    $counter++;
-    $c->session->set('counter' => $counter);
-    return $c->render('index.tx', {
-        counter => $counter,
+get '/signup' => sub {
+    my ($c,$args) = @_;
+
+    return $c->render('signup.tx', {
     });
 };
 
-post '/reset_counter' => sub {
-    my $c = shift;
-    $c->session->remove('counter');
-    return $c->redirect('/');
-};
+post '/signup' =>sub{
+  my $c = shift;
+  my $str="not regist";
+  my $str2="regist";
 
-post '/account/logout' => sub {
-    my ($c) = @_;
-    $c->session->expire();
-    return $c->redirect('/');
+  if(AppBootCamp::Repository::User->isAlreadyRegisted($c->req->parameters->{screen_name})){
+
+    p $str2;
+  }else{
+    return $c->render('signup.tx', {
+        error_signup_screen_name  => "eroooooooooooor"
+    });
+  }
+  return $c->redirect('/signup');
 };
 
 1;

@@ -8,9 +8,9 @@ use Teng::Schema::Declare;
 base_row_class 'AppBootCamp::DB::Row';
 
 table {
-    name 'member';
+    name 'user';
     pk 'id';
-    columns qw(id name);
+    columns qw(id screen_name name password);
 };
 
 1;

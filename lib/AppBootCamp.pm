@@ -6,6 +6,7 @@ our $VERSION='0.01';
 use 5.008001;
 use AppBootCamp::DB::Schema;
 use AppBootCamp::DB;
+use DDP;
 
 use parent qw/Amon2/;
 # Enable project local mode.
@@ -15,6 +16,7 @@ my $schema = AppBootCamp::DB::Schema->instance;
 
 sub db {
     my $c = shift;
+    p $c;
     if (!exists $c->{db}) {
         my $conf = $c->config->{DBI}
             or die "Missing configuration about DBI";
@@ -22,9 +24,9 @@ sub db {
             schema       => $schema,
             connect_info => [@$conf],
             # I suggest to enable following lines if you are using mysql.
-            # on_connect_do => [
-            #     'SET SESSION sql_mode=STRICT_TRANS_TABLES;',
-            # ],
+             on_connect_do => [
+                 'SET SESSION sql_mode=STRICT_TRANS_TABLES;',
+             ],
         );
     }
     $c->{db};
