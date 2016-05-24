@@ -8,9 +8,9 @@ use Amon2::Web::Dispatcher::RouterBoom;
 use AppBootCamp::Repository::User;
 
 get '/signup' => sub {
-    my ($c,$args) = @_;
+  my ($c,$args) = @_;
 
-    return $c->render('signup.tx', {
+  return $c->render('signup.tx', {
     });
 };
 
@@ -22,14 +22,20 @@ post '/signup' =>sub{
   my $user = $c->model('User');
 
   if(AppBootCamp::Repository::User->isAlreadyRegisted($user,$c->req->parameters->{screen_name})){
-
-    p $str2;
-  }else{
     return $c->render('signup.tx', {
-        error_signup_screen_name  => "eroooooooooooor"
-    });
+        error_signup_screen_name  => "this screen_name is already used."
+      });
   }
-  return $c->redirect('/signup');
+
+  $user->regist_user($c->req->parameters->{screen_name},$c->req->parameters->{name},$c->req->parameters->{password});
+
+  return $c->redirect('/timeline');
+};
+
+get '/timeline'=>sub{
+  my ($c,$args) = @_;
+  return $c->render('timeline.tx',{
+    });
 };
 
 1;

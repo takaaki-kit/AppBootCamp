@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+  </head>
+  <body>
+    <div class="signup_form">
+      <form method="POST" action="/signup">
+        <div class="screen_name">
+          <input type="text" name="screen_name"><label><: $error_signup_screen_name :></label>
+        </div>
+
+        <div class="name">
+          <input type="text" name="name">
+        </div>
+
+        <div class="password">
+          <input type="text" name="password">
+        </div>
+
+        <div class="submit">
+          <input type="submit" value="登録する">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
