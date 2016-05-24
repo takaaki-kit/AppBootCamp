@@ -1,0 +1,164 @@
+.all-item{
+  width:70%;
+  height:1000px;
+  background-color:gray;
+  margin:0 auto;
+  overflow:hidden;
+}
+
+
+ /*---------------------------------
+ *header
+ *---------------------------------*/
+
+
+.header{
+  width:100%;
+  height:50px;
+  background-color:lightgreen;
+  overflow:hidden;
+}
+
+.home{
+  float:left;
+  margin-right:15px;
+  margin-top:5px;
+}
+.mentions{
+  float:left;
+  margin-right:15px;
+  margin-top:5px;
+}
+.all-post{
+  float:left;
+  margin-right:15px;
+  margin-top:5px;
+}
+.setting{
+  float:right;
+  margin-left:15px;
+  margin-top:5px;
+}
+.search{
+  float:right;
+  margin-left:15px;
+  margin-top:10px;
+}
+
+
+.search i{
+  position:relative;
+  right:20px;
+}
+
+span{
+  font-size:20px;
+}
+
+.header input[type=text]{
+  height:20px;
+}
+
+ /*---------------------------------
+ *sub-bar
+ *---------------------------------*/
+
+
+.sub-bar{
+  width:30%;
+  height:320px;
+  background-color:lightblue;
+  overflow:hidden;
+  float:left; 
+}
+
+.sub-bar-head{
+  height:70px;
+}
+
+.sub-bar .image{
+  width:70px;
+  height:70px;
+  background-color:black;
+  float:left;
+}
+
+.profile{
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+textarea{
+  resize:none;
+}
+
+.post-picture{
+  float:left;
+}
+
+.post-confirm{
+  float:right;
+}
+
+
+
+ /*---------------------------------
+ *timeline
+ *---------------------------------*/
+
+.timeline{
+  width:60%;
+  background-color:lightyellow;
+  float:right;
+  overflow:hidden;
+}
+
+
+.content{
+}
+
+.timeline .image{
+  width:20%;
+  height:70px;
+  background-color:black;
+  float:left;
+}
+
+.timeline .name{
+  float:left;
+}
+
+.timeline .screen_name{
+  float:left;
+}
+
+.post-date{
+  float:right;
+}
+
+.timeline .text{
+  word-wrap:break-word;
+  margin-top:30px;
+  width:100%;
+}
+
+.timeline .picture{
+  width:80%;
+  height:200px;
+  margin:0 auto;
+  background-color:darkgray;
+}
+
+.timeline .content-post{
+  width:80%;
+  height:100%;
+  float:left;
+  background-color:green;
+}
+
+.timeline .edit{
+  float:left;
+}
+.timeline .delete{
+  float:right;
+}

@@ -16,8 +16,6 @@ get '/signup' => sub {
 
 post '/signup' =>sub{
   my $c = shift;
-  my $str="not regist";
-  my $str2="regist";
 
   my $user = $c->model('User');
 

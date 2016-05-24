@@ -1,8 +1,116 @@
 <!doctype html>
 <html lang="ja">
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/timeline.css">
   </head>
   <body>
     <h1>timeline</h1>
-  </body>
+    <div class="all-item">
+      <div class="header">
+        <div class="home">
+          <a href=""><i class="fa fa-home fa-2x"><span>ホーム</span></i></a>
+        </div>
+        <div class="mentions">
+          <a href=""><i class="fa fa-at fa-2x"><span>メンション</span></i></a>
+        </div>
+        <div class="all-post">
+          <a href=""><i class="fa fa-clone fa-2x"><span>すべての投稿</span></i></a>
+        </div>
+        <div class="setting">
+          <a href=""><i class="fa fa-cog fa-2x"></i></a>
+        </div>
+        <div class="search">
+          <input type="text" value="検索"><i class="fa fa-search"></i>
+        </div>
+      </div>
+
+      <div class="sub-bar">
+        <div class="sub-bar-head">
+          <div class="image">
+          </div>
+          <div class=username_id>
+            <div class="name">
+              username
+            </div>
+            <div class="screen_name">
+              @userid
+            </div>
+          </div>
+        </div>
+        <div class="profile">
+          hitokoto comment
+        </div>
+        <div class="post-text">
+          <textarea  name="post-text" cols="30" rows="10"></textarea>
+        </div>
+        <div class="post-picture">
+          <a href=""><i class="fa fa-camera"></i></a>
+        </div>
+        <div class="post-confirm">
+          <input type="submit" value="投稿する">
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="content">
+          <div class="image">
+          </div>
+          <div class="content-post">
+            <div class="content-post-header">
+              <div class="name">
+                username
+              </div>
+              <div class="screen_name">
+                @screen
+              </div>
+              <div class="post-date">
+                2016/5/24
+              </div>
+            </div>
+            <div class="text">
+              <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
+            </div>
+            <div class="picture">
+            </div>
+            <div class="edit">
+              <a href="">edit</a>
+            </div>
+            <div class="delete">
+              <a href="">delete</a>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="image">
+          </div>
+          <div class="content-post">
+            <div class="content-post-header">
+              <div class="name">
+                username
+              </div>
+              <div class="screen_name">
+                @screen
+              </div>
+              <div class="post-date">
+                2016/5/24
+              </div>
+            </div>
+            <div class="text">
+              <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
+            </div>
+            <div class="picture">
+            </div>
+            <div class="edit">
+              <a href="">edit</a>
+            </div>
+            <div class="delete">
+              <a href="">delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
