@@ -12,6 +12,10 @@ use parent qw/Amon2/;
 # Enable project local mode.
 __PACKAGE__->make_local_context();
 
+use lib 'vendor';
+use Amon2::Plugin::Model;
+__PACKAGE__->load_plugin('Model');
+
 my $schema = AppBootCamp::DB::Schema->instance;
 
 sub db {

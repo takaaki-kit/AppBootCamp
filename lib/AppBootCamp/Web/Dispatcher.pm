@@ -19,7 +19,9 @@ post '/signup' =>sub{
   my $str="not regist";
   my $str2="regist";
 
-  if(AppBootCamp::Repository::User->isAlreadyRegisted($c->req->parameters->{screen_name})){
+  my $user = $c->model('User');
+
+  if(AppBootCamp::Repository::User->isAlreadyRegisted($user,$c->req->parameters->{screen_name})){
 
     p $str2;
   }else{
