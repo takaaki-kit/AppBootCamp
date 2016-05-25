@@ -10,7 +10,7 @@ sub new{
 
 sub get_all_message{
   my $self = shift;
-  return $self->{'db'}->search('message');
+  return $self->{'db'}->search('message',{},{order_by => 'created_at DESC'});
 }
 
 sub post_new_message{
@@ -19,7 +19,6 @@ sub post_new_message{
       user_id =>  $us_is,
       text    =>  $txt,
       deleted => $dl
-
     });
 }
 
