@@ -3,7 +3,6 @@ use warnings;
 
 use t::Util;
 use AppBootCamp;
-use AppBootCamp::Repository::User;
 use Test::More;
 
 subtest 'User Model' => sub{
@@ -19,17 +18,17 @@ subtest 'User Model' => sub{
       my $expect = $user->get_user_by_screen_name('no_screen_name');
       is($expect,undef);
 
-    }
+    };
+
+    subtest 'regist new user' => sub{
+      my $user = AppBootCamp->bootstrap()->model('User');
+
+      my $expect = $user->regist_user('testuser1','username','pass');
+      isnt($expect,undef);
+
+    };
+
   };
-
-  subtest 'regist new user' => sub{
-    my $user = AppBootCamp->bootstrap()->model('User');
-
-    my $expect = $user->regist_user('userid','username','pass');
-    isnt($expect,undef);
-
-  }
-
 };
 
 done_testing;

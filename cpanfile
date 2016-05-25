@@ -15,6 +15,8 @@ requires 'Text::Xslate', '2.0009';
 requires 'Time::Piece', '1.20';
 requires 'perl', '5.010_001';
 requires 'Module::Find';
+requires 'Time::Moment';
+requires 'Time::TZOffset';
 
 on configure => sub {
     requires 'Module::Build', '0.38';

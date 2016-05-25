@@ -14,7 +14,7 @@ sub get_user_by_screen_name {
 
 sub regist_user{
   my ($self, $sn,$n,$p) = @_;
-  return $self->{db}->fast_insert(user=>{screen_name=>$sn,name=>$n,password=>$p});
+  return $self->{db}->insert(user=>{screen_name=>$sn,name=>$n,password=>$p});
 }
 1;
 

@@ -41,18 +41,22 @@
         <div class="profile">
           hitokoto comment
         </div>
-        <div class="post-text">
-          <textarea  name="post-text" cols="30" rows="10"></textarea>
-        </div>
-        <div class="post-picture">
-          <a href=""><i class="fa fa-camera"></i></a>
-        </div>
-        <div class="post-confirm">
-          <input type="submit" value="投稿する">
-        </div>
+        <form action="/message/new" method="POST">
+          <div class="post-text">
+            <input  name="post_text">
+          </div>
+          <div class="post-picture">
+            <a href=""><i class="fa fa-camera"></i></a>
+          </div>
+          <div class="post-confirm">
+            <input type="submit" value="投稿する">
+          </div>
+        </form>
       </div>
 
       <div class="timeline">
+
+        : for $messages -> $content{
         <div class="content">
           <div class="image">
           </div>
@@ -65,50 +69,23 @@
                 @screen
               </div>
               <div class="post-date">
-                2016/5/24
+                <span><: $content.get('created_at') :></span>
               </div>
             </div>
             <div class="text">
-              <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
+              <p><:  $content.get('text') :></p>
             </div>
             <div class="picture">
             </div>
             <div class="edit">
-              <a href="">edit</a>
+              <a href=""><i class="fa fa-pencil"></i>編集</a>
             </div>
             <div class="delete">
-              <a href="">delete</a>
+              <a href=""><i class="fa fa-trash"></i>削除</a>
             </div>
           </div>
         </div>
-        <div class="content">
-          <div class="image">
-          </div>
-          <div class="content-post">
-            <div class="content-post-header">
-              <div class="name">
-                username
-              </div>
-              <div class="screen_name">
-                @screen
-              </div>
-              <div class="post-date">
-                2016/5/24
-              </div>
-            </div>
-            <div class="text">
-              <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
-            </div>
-            <div class="picture">
-            </div>
-            <div class="edit">
-              <a href="">edit</a>
-            </div>
-            <div class="delete">
-              <a href="">delete</a>
-            </div>
-          </div>
-        </div>
+        :  }
       </div>
     </div>
   </div>
