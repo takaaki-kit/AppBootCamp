@@ -3,6 +3,11 @@
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/static/css/timeline.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/remodel.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/remodel-default-theme.css">
+    <script type="text/javascript" src="/static/js/timeline.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/remodel.js"></script>
   </head>
   <body>
     <h1>timeline</h1>
@@ -57,7 +62,7 @@
       <div class="timeline">
 
         : for $messages -> $content{
-        <div class="content">
+        <div class="content" id="post_id_<:$content.get('id'):>">
           <div class="image">
           </div>
           <div class="content-post">
@@ -78,16 +83,18 @@
             <div class="picture">
             </div>
             <div class="edit">
-              <a href=""><i class="fa fa-pencil"></i>編集</a>
+              <a data-remodal-target="edit_modal"><i class="fa fa-pencil"></i>編集</a>
             </div>
             <div class="delete">
-              <a href=""><i class="fa fa-trash"></i>削除</a>
+              <a data-remodal-target="delete_modal"><i class="fa fa-trash"></i>削除</a>
             </div>
           </div>
         </div>
         :  }
       </div>
     </div>
-  </div>
-</body>
+    
+    <: block edit_modal -> { } :>
+    <: block delete_modal -> { } :>
+  </body>
 </html>
