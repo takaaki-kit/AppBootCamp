@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use utf8;
 use AppBootCamp::Repository::User;
+use DDP;
 
 sub get_signup {
   my ($class,$c,$args) = @_;
@@ -45,6 +46,17 @@ sub post_message_new{
 
   $message->post_new_message(1,$c->req->parameters->{post_text},0);
 
+  return $c->redirect('/timeline');
+
+}
+
+sub post_edit{
+  my($class,$c,$args) = @_;
+  my $message = $c->model('Message');
+
+  p $c->req->parameters->{edit_text_name};
+  p $c->req->parameters->{edit_id_name};
+  $message->update_message($c->req->parameters->{edit_text_name},$c->req->parameters->{edit_id_name});
   return $c->redirect('/timeline');
 
 }

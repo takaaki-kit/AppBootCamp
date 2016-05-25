@@ -9,7 +9,9 @@ function init(){
   }
 }
 
-
+function edit_text(target){
+  document.getElementById('edit_id').value=target.id
+}
 
 function popup_screen(i){
 

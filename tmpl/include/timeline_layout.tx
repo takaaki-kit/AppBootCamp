@@ -83,7 +83,7 @@
             <div class="picture">
             </div>
             <div class="edit">
-              <a data-remodal-target="edit_modal"><i class="fa fa-pencil"></i>編集</a>
+              <a onclick="edit_text(this)" id="<: $content.get('id') :>" data-remodal-target="edit_modal"><i class="fa fa-pencil"></i>編集</a>
             </div>
             <div class="delete">
               <a data-remodal-target="delete_modal"><i class="fa fa-trash"></i>削除</a>
