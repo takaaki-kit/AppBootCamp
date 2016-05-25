@@ -7,7 +7,6 @@ use AppBootCamp::Repository::User;
 sub get_signup {
   my ($class,$c,$args) = @_;
 
-
   return $c->render('signup.tx', {
     });
 };

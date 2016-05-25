@@ -22,5 +22,14 @@ sub post_new_message{
     });
 }
 
+sub update_message{
+  my($self,$new_text,$id) = @_;
+  return $self->{db}->update('message',{text=>$new_text},{id=>$id});
+}
+
+sub delete_message{
+  my ($self,$delete_id)= @_;
+  return $self->{db}->delete('message',{id=>$delete_id});
+}
 1;
 

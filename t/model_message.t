@@ -8,6 +8,7 @@ use Test::More;
 subtest 'Message Model' => sub{
   my $message = AppBootCamp->bootstrap()->model('Message');
   $message->{db}->delete('message');
+  $message->{db}->do("ALTER TABLE message AUTO_INCREMENT = 1");
 
   subtest 'post_new_message' => sub{
     subtest 'regist new message1' => sub{
@@ -29,6 +30,20 @@ subtest 'Message Model' => sub{
     };
   };
 
+  subtest 'update_message' => sub{
+    subtest 'update message text whose id is 2' => sub{
+      $message->update_message('update teeeeeeeeeext',2);
+      my $expect = $message->{db}->single('message',{id=>2});
+      is($expect->text,'update teeeeeeeeeext');
+    };
+  };
+
+  subtest 'delete_message' => sub{
+    subtest 'delete message whose id is 1' => sub{
+      my $expect = $message->delete_message(1);
+      is($expect,1);
+    };
+  };
 
 
 };

@@ -6,7 +6,7 @@
       <button data-remodal-action="close" class="remodal-close"></button>
       <p>編集</p>
       <div>
-        <input type="text" value=''>
+        <input type="text" value="wwwwwwwwwwwwww">
       </div>
       <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
       <button data-remodal-action="confirm" class="remodal-confirm">OK</button>

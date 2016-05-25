@@ -166,3 +166,19 @@ input[name="post_text"]{
 .timeline .delete{
   float:right;
 }
+
+
+
+ /*---------------------------------
+ *modal window
+ *---------------------------------*/
+
+.edit a:hover{
+  color:#AAAAAA;
+}
+
+.delete a:hover{
+  color:#AAAAAA;
+}
+
+
