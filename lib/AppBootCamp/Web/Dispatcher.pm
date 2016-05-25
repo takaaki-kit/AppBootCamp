@@ -15,5 +15,6 @@ post '/signup' => 'Page#post_signup';
 get '/timeline'=> 'Page#get_timeline';
 post '/message/new' =>  'Page#post_message_new';
 post '/message/edit'  =>  'Page#post_edit';
+post '/message/delete'  =>  'Page#post_delete';
 
 1;

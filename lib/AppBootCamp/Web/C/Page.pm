@@ -61,4 +61,14 @@ sub post_edit{
 
 }
 
+sub post_delete{
+  my($class,$c,$args) = @_;
+  my $message = $c->model('Message');
+
+  p $c->req->parameters->{delete_id_name};
+  $message->delete_message($c->req->parameters->{delete_id_name});
+  return $c->redirect('/timeline');
+
+}
+
 1;
