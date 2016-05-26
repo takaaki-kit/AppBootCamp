@@ -12,11 +12,11 @@ subtest 'Message Model' => sub{
 
   subtest 'post_new_message' => sub{
     subtest 'regist new message1' => sub{
-      my $expect = $message->post_new_message(1,"new post message",0);
+      my $expect = $message->post_new_message(1,"new post message",0,"NULL",0);
       is($expect->text,"new post message");
     };
     subtest 'regist new message2' => sub{
-      my $expect = $message->post_new_message(1,"add new",0);
+      my $expect = $message->post_new_message(1,"add new",0,"NULL",0);
       is($expect->text,"add new");
     };
   };

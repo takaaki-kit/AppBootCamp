@@ -46,12 +46,13 @@
         <div class="profile">
           hitokoto comment
         </div>
-        <form action="/message/new" method="POST">
+        <form action="/message/new" method="POST" enctype="multipart/form-data">
           <div class="post-text">
             <input  name="post_text">
           </div>
           <div class="post-picture">
-            <a href=""><i class="fa fa-camera"></i></a>
+            <label for="file_button"><i class="fa fa-camera"></i></label>
+            <input type="file" style="display:none;" id="file_button" name="image">
           </div>
           <div class="post-confirm">
             <input type="submit" value="投稿する">
@@ -81,6 +82,7 @@
               <p><:  $content.get('text') :></p>
             </div>
             <div class="picture">
+              <img src="<: $content.get('image') :>">
             </div>
             <div class="edit">
               <a onclick="edit_text(this)" id="<: $content.get('id') :>" data-remodal-target="edit_modal"><i class="fa fa-pencil"></i>編集</a>

@@ -13,7 +13,7 @@ base_row_class 'AppBootCamp::DB::Row';
 table {
   name 'user';
   pk 'id';
-  columns qw(id screen_name name password created_at updated_at);
+  columns qw(id screen_name name password image created_at updated_at);
 
   inflate 'created_at' => \&inflate_moment_from_mysql_datetime_str;
   deflate 'created_at' => \&deflate_moment_to_mysql_datetime_str;
@@ -25,7 +25,7 @@ table {
 table {
   name 'message';
   pk 'id';
-  columns qw(id user_id text mention deleted created_at updated_at);
+  columns qw(id user_id text mention image deleted created_at updated_at);
 
   inflate 'created_at' => \&inflate_moment_from_mysql_datetime_str;
   deflate 'created_at' => \&deflate_moment_to_mysql_datetime_str;

@@ -3,8 +3,14 @@ use strict;
 use warnings;
 use utf8;
 use AppBootCamp::Repository::User;
+
+use File::Copy;
+use File::Spec;
+use File::Basename;
+use Time::Piece;
 use DDP;
-use Plack::Session;
+
+my $dir = 'static/upload';
 
 sub get_signup {
   my ($class,$c,$args) = @_;
@@ -37,6 +43,9 @@ sub get_timeline{
   my $message = $c->model('Message');
   my @messages = $message->get_all_message();
 
+   my $ab_dir = File::Spec->catdir($c->base_dir(),$dir);
+   my @image = reverse map {$dir.'/'.basename($_)} glob ("$ab_dir/*");
+   p @image;
 
   return $c->render('timeline.tx',{
 #      action =>  $args->{screen_name},
@@ -48,8 +57,19 @@ sub post_message_new{
   my($class,$c,$args) = @_;
   my $message = $c->model('Message');
 
-  $message->post_new_message(1,$c->req->parameters->{post_text},0);
+  my $upload = $c->req->uploads->{image};
+  if($upload){
+    my $ext = valid_type($upload->content_type);
+    if($ext){
+      my $src = $upload->tempname;
+      my $dst = create_filename($ext);
+      $dst = File::Spec->catfile($c->base_dir(),$dir,$upload->{filename});
+      copy $src,$dst;
+    }
+  }
 
+  my $path = File::Spec->catfile($dir,$upload->{filename});
+  $message->post_new_message(1,$c->req->parameters->{post_text},0,$path,0);
   return $c->redirect('/timeline');
 
 }
@@ -96,8 +116,26 @@ sub post_login{
       });
   };
 
+  $c->session->set('screen_name',$screen_name);
 
   return $c->redirect("/$screen_name");
 };
+
+sub valid_type {
+  my $type = shift;
+
+  my %valid_types = ('image/gif' => 'gif','image/jpeg' => 'jpg','image/png' => 'png');
+
+  return $valid_types{$type};
+}
+
+sub create_filename {
+  my $ext = shift;
+
+  my $date = localtime;
+  my $rand_num = sprintf "%05s",int(rand 100000);
+
+  return 'image-'.$date->datetime(date => '',time => '',T => '').'-'.$rand_num.'.'.$ext;
+}
 
 1;

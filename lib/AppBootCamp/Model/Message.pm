@@ -14,10 +14,12 @@ sub get_all_message{
 }
 
 sub post_new_message{
-  my ($self,$us_is,$txt,$dl) = @_;
+  my ($self,$us_is,$txt,$mt,$im,$dl) = @_;
   return $self->{'db'}->insert(message=>{
       user_id =>  $us_is,
       text    =>  $txt,
+      mention =>  $mt,
+      image   =>  $im,
       deleted => $dl
     });
 }
