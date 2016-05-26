@@ -11,12 +11,12 @@ subtest 'User Model' => sub{
 
   subtest 'method:regist_user' => sub{
     subtest 'regist new user' => sub{
-      my $expect = $user->regist_user('testuser1','username','pass');
+      my $expect = $user->regist_user('testuser1','username','pass',"NULL",'profileeeee');
       is($expect->screen_name,'testuser1');
     };
   };
 
-  subtest 'get_user_by_screen_name' => sub{
+  subtest 'get_user_id_by_screen_name' => sub{
     subtest 'exist target user' => sub{
       my $expect = $user->get_user_by_screen_name('testuser1');
       is($expect->screen_name,'testuser1');

@@ -13,6 +13,11 @@ sub get_all_message{
   return $self->{'db'}->search('message',{},{order_by => 'created_at DESC'});
 }
 
+sub get_message_by_user_id{
+  my ($self,$user_id) = @_;
+  return $self->{'db'}->search('message',{user_id => $user_id},{order_by => 'created_at DESC'});
+}
+
 sub post_new_message{
   my ($self,$us_is,$txt,$mt,$im,$dl) = @_;
   return $self->{'db'}->insert(message=>{

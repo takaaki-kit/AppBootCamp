@@ -20,7 +20,6 @@ my $schema = AppBootCamp::DB::Schema->instance;
 
 sub db {
     my $c = shift;
-    p $c;
     if (!exists $c->{db}) {
         my $conf = $c->config->{DBI}
             or die "Missing configuration about DBI";

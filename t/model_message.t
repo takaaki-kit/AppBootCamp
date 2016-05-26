@@ -19,11 +19,24 @@ subtest 'Message Model' => sub{
       my $expect = $message->post_new_message(1,"add new",0,"NULL",0);
       is($expect->text,"add new");
     };
+    subtest 'regist new message3' => sub{
+      my $expect = $message->post_new_message(2,"add new",0,"NULL",0);
+      is($expect->text,"add new");
+    };
   };
 
   subtest 'get_all_message' => sub{
     subtest 'check the number of posts is 2' => sub{
       my $array = $message->get_all_message();
+      my @array = @{$array->all};
+      my $expect = @array;
+      is($expect,3);
+    };
+  };
+
+  subtest 'get_message_by_user_id' => sub{
+    subtest 'get message which user id is 1' => sub{
+      my $array = $message->get_message_by_user_id(1);
       my @array = @{$array->all};
       my $expect = @array;
       is($expect,2);

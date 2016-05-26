@@ -8,9 +8,29 @@
     <script type="text/javascript" src="/static/js/timeline.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="/static/js/remodel.js"></script>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title><: $title || 'AmonSample' :></title>
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <script src="<: uri_for('/static/js/jquery-2.1.1.min.js') :>"></script>
+    <link href="<: uri_for('/static/bootstrap/css/bootstrap.css') :>" rel="stylesheet" type="text/css" />
+    <script src="<: uri_for('/static/bootstrap/js/bootstrap.js') :>"></script>
+    <script src="<: uri_for('/static/js/es5-shim.min.js') :>"></script>
+    <script src="<: uri_for('/static/js/micro_template.js') :>"></script>
+    <script src="<: uri_for('/static/js/strftime.js') :>"></script>
+    <script src="<: uri_for('/static/js/sprintf.js') :>"></script>
+    <script src="<: uri_for('/static/js/micro-location.js') :>"></script>
+    <script src="<: uri_for('/static/js/micro_dispatcher.js') :>"></script>
+    <script src="<: uri_for('/static/js/xsrf-token.js') :>"></script>
+    <link href="<: static_file('/static/css/main.css') :>" rel="stylesheet" type="text/css" media="screen" />
+    <script src="<: static_file('/static/js/main.js') :>"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <h1>timeline</h1>
     <div class="all-item">
       <div class="header">
         <div class="home">
@@ -36,15 +56,15 @@
           </div>
           <div class=username_id>
             <div class="name">
-              username
+              <span><: $name :></span>
             </div>
             <div class="screen_name">
-              <: $screen_name :>
+              <span>@<: $screen_name :></span>
             </div>
           </div>
         </div>
         <div class="profile">
-          hitokoto comment
+          <span><: $profile :></span>
         </div>
         <form action="/message/new" method="POST" enctype="multipart/form-data">
           <div class="post-text">

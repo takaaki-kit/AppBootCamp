@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS user (
     name                VARCHAR(255),
     password            VARCHAR(255),
     image               VARCHAR(255),
+    text                TEXT,
     created_at   DATETIME NOT NULL,
     updated_at   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 

@@ -13,8 +13,8 @@ sub get_user_by_screen_name {
 }
 
 sub regist_user{
-  my ($self, $sn,$n,$p) = @_;
-  return $self->{db}->insert(user=>{screen_name=>$sn,name=>$n,password=>$p});
+  my ($self, $sn,$n,$p,$im,$tx) = @_;
+  return $self->{db}->insert(user=>{screen_name=>$sn,name=>$n,password=>$p,image=>$im,text=>$tx});
 }
 
 sub get_user_by_screen_name_and_password {
