@@ -12,7 +12,9 @@ base 'AppBootCamp::Web::C';
 
 get '/signup' =>  'Page#get_signup';
 post '/signup' => 'Page#post_signup';
-get '/timeline'=> 'Page#get_timeline';
+get '/login'  =>  'Page#get_login';
+post '/login'  =>  'Page#post_login';
+get '/:screen_name'=> 'Page#get_timeline';
 post '/message/new' =>  'Page#post_message_new';
 post '/message/edit'  =>  'Page#post_edit';
 post '/message/delete'  =>  'Page#post_delete';

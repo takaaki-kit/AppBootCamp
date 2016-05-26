@@ -39,7 +39,7 @@
               username
             </div>
             <div class="screen_name">
-              @userid
+              <: $screen_name :>
             </div>
           </div>
         </div>

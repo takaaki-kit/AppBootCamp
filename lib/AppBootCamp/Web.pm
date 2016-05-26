@@ -15,7 +15,7 @@ sub dispatch {
 __PACKAGE__->load_plugins(
     'Web::FillInFormLite',
     'Web::JSON',
-    '+AppBootCamp::Web::Plugin::Session',
+#    '+AppBootCamp::Web::Plugin::Session',
 );
 
 # setup view

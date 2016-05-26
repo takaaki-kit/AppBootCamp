@@ -25,10 +25,14 @@ subtest 'User Model' => sub{
     subtest 'not exist target user' => sub{
       my $expect = $user->get_user_by_screen_name('no_screen_name');
       is($expect,undef);
-
     };
+  };
 
-
+  subtest 'get_user_by_screen_name_and_password' => sub{
+    subtest 'exist target user' => sub{
+      my $expect = $user->get_user_by_screen_name_and_password('testuser1','pass');
+      isnt($expect,undef);
+    };
   };
 };
 

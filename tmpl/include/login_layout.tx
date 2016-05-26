@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <title>ログインページ</title>
+  </head>
+  <body>
+    <div class="login_form">
+      <form method="POST" action="/login">
+        <div class="screen_name">
+          <input type="text" name="screen_name"><label><: $error_login_screen_name :></label>
+        </div>
+
+        <div class="password">
+          <input type="text" name="password"><label><: $error_login_password :></label>
+        </div>
+
+        <div class="submit">
+          <input type="submit" value="ログイン">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
