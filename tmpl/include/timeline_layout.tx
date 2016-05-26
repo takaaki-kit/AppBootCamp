@@ -81,9 +81,11 @@
             <div class="text">
               <p><:  $content.get('text') :></p>
             </div>
+            :if $content.get('image') != nil{
             <div class="picture">
               <img src="<: $content.get('image') :>">
             </div>
+            :}
             <div class="edit">
               <a onclick="edit_text(this)" id="<: $content.get('id') :>" data-remodal-target="edit_modal"><i class="fa fa-pencil"></i>編集</a>
             </div>

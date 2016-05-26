@@ -67,8 +67,8 @@ sub post_message_new{
       copy $src,$dst;
     }
   }
-
-  my $path = File::Spec->catfile($dir,$upload->{filename});
+  my $path=$upload->{filename};
+  if(defined($path)){$path = File::Spec->catfile($dir,$path);}
   $message->post_new_message(1,$c->req->parameters->{post_text},0,$path,0);
   return $c->redirect('/timeline');
 
