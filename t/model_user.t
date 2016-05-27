@@ -34,6 +34,13 @@ subtest 'User Model' => sub{
       isnt($expect,undef);
     };
   };
+
+
+  subtest 'method:update_user' => sub{
+    my $expect = $user->update_user('testuser1','updatename','upadtecomment',"NULL");
+    is($expect,1);
+  };
+
 };
 
 done_testing;

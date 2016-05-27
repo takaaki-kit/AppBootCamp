@@ -1,0 +1,37 @@
+.login_form{
+  width:250px;
+  border:solid 1px;
+  margin:0 auto;
+  margin-top:50px;
+}
+
+.screen_name{
+  width:200px;
+  margin:0 auto;
+  margin-bottom:30px;
+  margin-top:20px
+}
+
+input[type="text"]{
+  width:200px;
+}
+
+.error_state{
+  color:red;
+  text-align:center;
+}
+
+.password{
+  width:200px;
+  margin:0 auto;
+  margin-bottom:30px;
+}
+
+.submit{
+  text-align:center;
+  margin-bottom:20px
+}
+
+input[type="submit"]{
+  width:150px;
+}

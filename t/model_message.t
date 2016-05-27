@@ -25,23 +25,23 @@ subtest 'Message Model' => sub{
     };
   };
 
-  subtest 'get_all_message' => sub{
-    subtest 'check the number of posts is 2' => sub{
-      my $array = $message->get_all_message();
-      my @array = @{$array->all};
-      my $expect = @array;
-      is($expect,3);
-    };
-  };
-
-  subtest 'get_message_by_user_id' => sub{
-    subtest 'get message which user id is 1' => sub{
-      my $array = $message->get_message_by_user_id(1);
-      my @array = @{$array->all};
-      my $expect = @array;
-      is($expect,2);
-    };
-  };
+#  subtest 'get_all_message' => sub{
+#    subtest 'check the number of posts is 2' => sub{
+#      my $array = $message->get_all_message();
+#      my @array = @{$array->all};
+#      my $expect = @array;
+#      is($expect,3);
+#    };
+#  };
+  #
+#  subtest 'get_message_by_user_id' => sub{
+#    subtest 'get message which user id is 1' => sub{
+#      my $array = $message->get_message_by_user_id(1);
+#      my @array = @{$array->all};
+#      my $expect = @array;
+#      is($expect,2);
+#    };
+#  };
 
   subtest 'update_message' => sub{
     subtest 'update message text whose id is 2' => sub{

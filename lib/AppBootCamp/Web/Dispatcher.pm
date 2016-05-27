@@ -19,5 +19,7 @@ post '/message/new' =>  'Page#post_message_new';
 post '/message/edit'  =>  'Page#post_edit';
 post '/message/delete'  =>  'Page#post_delete';
 get '/logout' => 'Page#get_logout';
+get '/profile' => 'Page#get_profile';
+post '/profile' => 'Page#post_profile';
 get '/:screen_name'=> 'Page#get_timeline';
 1;

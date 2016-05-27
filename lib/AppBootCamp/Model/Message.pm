@@ -10,13 +10,13 @@ sub new{
 
 sub get_all_message{
   my $self = shift;
-  return $self->{db}->search_by_sql(q{select message.id, message.user_id, message.text, message.mention, message.image, message.deleted, message.created_at, message.updated_at, user.screen_name, user.name from message inner join user on message.user_id = user.id order by created_at DESC});
+  return $self->{db}->search_by_sql(q{select message.id, message.user_id, message.text, message.mention, message.image, message.deleted, message.created_at, message.updated_at, user.screen_name, user.name, user.image as uimage from message inner join user on message.user_id = user.id order by created_at DESC});
   #return $self->{'db'}->search('message',{},{order_by => 'created_at DESC'});
 }
 
 sub get_message_by_user_id{
   my ($self,$user_id) = @_;
-  return $self->{db}->search_by_sql(q{select message.id, message.user_id, message.text, message.mention, message.image, message.deleted, message.created_at, message.updated_at, user.screen_name, user.name from message inner join user on message.user_id = user.id where user.id = ? order by created_at DESC},[$user_id]);
+  return $self->{db}->search_by_sql(q{select message.id, message.user_id, message.text, message.mention, message.image, message.deleted, message.created_at, message.updated_at, user.screen_name, user.name, user.image as uimage from message inner join user on message.user_id = user.id where user.id = ? order by created_at DESC},[$user_id]);
 #  return $self->{'db'}->search('message',{user_id => $user_id},{order_by => 'created_at DESC'});
 }
 

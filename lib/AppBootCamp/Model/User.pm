@@ -26,5 +26,14 @@ sub get_user_by_screen_name_and_password {
   my ($self, $sn,$ps) = @_;
   return $self->{'db'}->single('user', {'screen_name' => $sn,'password' => $ps});
 }
+
+sub update_user{
+  my ($self,$sn,$nm,$tx,$im) = @_;
+ return $self->{'db'}->update(user=>{
+     name  => $nm,
+     text => $tx,
+     image =>  $im
+   },{screen_name => $sn});
+}
 1;
 

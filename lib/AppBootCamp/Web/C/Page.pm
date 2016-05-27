@@ -27,7 +27,7 @@ sub post_signup{
 
   if(AppBootCamp::Repository::User->isAlreadyRegisted($user,$screen_name)){
     return $c->render('signup.tx', {
-        error_signup_screen_name  => "this screen_name is already used."
+        error_code  => "this ID is already used"
       });
   }
   $c->session->set('screen_name',$screen_name);
@@ -48,6 +48,7 @@ sub get_timeline{
       screen_name =>  $login_user->screen_name,
       name  => $login_user->name,
       profile => $login_user->text,
+      user_image  => $login_user->image,
       login_id  => $login_user->id,
       messages =>  \@messages
   });
@@ -105,8 +106,7 @@ sub post_login{
 
   unless(AppBootCamp::Repository::User->isScreenNamePassMatched($user,$screen_name,$c->req->parameters->{password})){
     return $c->render('login.tx', {
-        error_login_screen_name  => "this screen_name is already used.",
-        error_login_password  => "this password is not correct."
+        error_code  => "ID or Password is not correct"
       });
   };
   $c->session->set('screen_name',$screen_name);
@@ -127,6 +127,7 @@ sub get_discover{
       screen_name =>  $login_user->screen_name,
       name  => $login_user->name,
       profile => $login_user->text,
+      user_image  => $login_user->image,
       login_id  => $login_user->id,
       messages =>  \@messages
   });
@@ -138,4 +139,25 @@ sub get_logout{
 
   $c->redirect("/login");
 };
+
+sub get_profile{
+  my($class,$c,$args) = @_;
+  return $c->render('profile.tx',{
+    });
+
+};
+
+sub post_profile{
+  my($class,$c,$args) = @_;
+  my $user = $c->model('User');
+  my $login_user = $user->get_user_by_screen_name($c->session->get('screen_name'));
+
+  my $sn = $login_user->screen_name;
+  my $path = AppBootCamp::Repository::Message->post_picture($c->req->uploads->{image},$c->base_dir());
+  $user->update_user($sn,$c->req->parameters->{name},$c->req->parameters->{text},$path);
+  p $sn;
+  return $c->redirect("/$sn");
+};
+
+
 1;

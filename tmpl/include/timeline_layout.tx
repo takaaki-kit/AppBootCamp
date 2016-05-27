@@ -45,7 +45,7 @@
         <div class="setting" onclick="obj=document.getElementById('dropmenu').style; obj.display=(obj.display=='none')?'block':'none';">
           <a style="cursor:pointer;"><i class="fa fa-cog fa-2x"></i></a>
         <div id="dropmenu" style="display:none;clear:both;">
-          <div class="edit_profile"><a href="/prifle">プロフィール編集</a></div>
+          <div class="edit_profile"><a href="/profile">プロフィール編集</a></div>
           <div class="logout"><a href="/logout">ログアウト</a></div>
         </div>
         </div>
@@ -57,6 +57,7 @@
       <div class="sub-bar">
         <div class="sub-bar-head">
           <div class="image">
+              <img src="<: $user_image :>">
           </div>
           <div class=username_id>
             <div class="name">
@@ -89,6 +90,7 @@
         : for $messages -> $content{
         <div class="content" id="post_id_<:$content.get('id'):>">
           <div class="image">
+              <img src="<: $content.get('uimage') :>">
           </div>
           <div class="content-post">
             <div class="content-post-header">
