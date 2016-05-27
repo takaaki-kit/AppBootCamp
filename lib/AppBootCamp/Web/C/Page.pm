@@ -64,6 +64,7 @@ sub post_message_new{
 
   $message->post_new_message($login_user->id,$c->req->parameters->{post_text},0,$path,0);
   my $sn = $login_user->screen_name;
+  p $c->req->headers->referer;
   return $c->redirect("/$sn");
 
 }
