@@ -12,6 +12,11 @@ sub get_user_by_screen_name {
   return $self->{'db'}->single('user', {'screen_name' => $screen_name});
 }
 
+sub get_user_by_id {
+  my ($self, $id) = @_;
+  return $self->{'db'}->single('user', {'id' => $id});
+}
+
 sub regist_user{
   my ($self, $sn,$n,$p,$im,$tx) = @_;
   return $self->{db}->insert(user=>{screen_name=>$sn,name=>$n,password=>$p,image=>$im,text=>$tx});

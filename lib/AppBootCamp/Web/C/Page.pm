@@ -38,16 +38,17 @@ sub post_signup{
 
 sub get_timeline{
   my ($class,$c,$args) = @_;
+  unless(AppBootCamp::Repository::User->isLogined($c->session->get('screen_name'))){return $c->redirect('/login');}
   my $message = $c->model('Message');
   my $user = $c->model('User');
   my $login_user = $user->get_user_by_screen_name($c->session->get('screen_name'));
   my @messages = $message->get_message_by_user_id($login_user->id);
 
-
   return $c->render('timeline.tx',{
       screen_name =>  $login_user->screen_name,
       name  => $login_user->name,
       profile => $login_user->text,
+      login_id  => $login_user->id,
       messages =>  \@messages
   });
 };
@@ -113,5 +114,28 @@ sub post_login{
   return $c->redirect("/$screen_name");
 };
 
+sub get_discover{
+  my($class,$c,$args) = @_;
+  unless(AppBootCamp::Repository::User->isLogined($c->session->get('screen_name'))){return $c->redirect('/login');}
+  my $message = $c->model('Message');
+  my $user = $c->model('User');
+  my $login_user = $user->get_user_by_screen_name($c->session->get('screen_name'));
+  my @messages = $message->get_all_message();
 
+
+  return $c->render('timeline.tx',{
+      screen_name =>  $login_user->screen_name,
+      name  => $login_user->name,
+      profile => $login_user->text,
+      login_id  => $login_user->id,
+      messages =>  \@messages
+  });
+};
+
+sub get_logout{
+  my($class,$c,$args) = @_;
+  $c->session->expire;
+
+  $c->redirect("/login");
+};
 1;

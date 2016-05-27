@@ -21,4 +21,10 @@ sub isScreenNamePassMatched{
   return 0;
 }
 
+sub isLogined{
+  my ($class,$login) = @_;
+  return 1 if(defined($login));
+  return 0;
+}
+
 1;

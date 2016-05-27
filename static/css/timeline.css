@@ -23,6 +23,16 @@
   color:#444;
 }
 
+.header .home:hover{
+  border-bottom:solid 5px #52a2c5;
+}
+.header .mentions:hover{
+  border-bottom:solid 5px #52a2c5;
+}
+.header .all-post:hover{
+  border-bottom:solid 5px #52a2c5;
+}
+
 .home{
   float:left;
   margin-right:15px;
@@ -49,7 +59,25 @@
   margin-top:10px;
 }
 
+#dropmenu{
+  width:150px;
+  background-color:#EEE;
+  border:solid 2px;
+  position:absolute; 
+  right:0px;
+}
 
+.edit_profile{
+ width:100%;
+ margin-top:10px;
+ margin-bottom:10px;
+}
+
+.logout{
+ width:100%;
+ margin-top:10px;
+ margin-bottom:10px;
+}
 .search i{
   position:relative;
   right:20px;
