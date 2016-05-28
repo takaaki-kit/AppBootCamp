@@ -1,0 +1,30 @@
+
+: cascade "include/timeline_layout.tx"
+
+: override edit_modal -> {
+    <div class="remodal" data-remodal-id="edit_modal" data-remodal-options="hashTracking:false">
+      <button data-remodal-action="close" class="remodal-close"></button>
+      <p>編集</p>
+      <form action="/message/edit" method="POST">
+      <div>
+        <input id="edit_id" name="edit_id_name" type="hidden">
+        <input id="edit_text" name="edit_text_name" type="text">
+      </div>
+      <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+      <input type="submit" class="remodal-confirm" value="更新する">
+      </form>
+    </div>
+: }
+
+: override delete_modal -> {
+  <div class="remodal" data-remodal-id="delete_modal" data-remodal-options="hashTracking:false">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <p>本当に削除しますか？</p>
+    <form action="/message/delete" method="POST">
+    <input type="hidden" id="delete_id" name="delete_id_name">
+    <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+    <input type="submit"  class="remodal-confirm" value="削除する">
+    </form>
+  </div>
+
+: }

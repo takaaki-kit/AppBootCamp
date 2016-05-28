@@ -6,10 +6,15 @@ our $VERSION='0.01';
 use 5.008001;
 use AppBootCamp::DB::Schema;
 use AppBootCamp::DB;
+use DDP;
 
 use parent qw/Amon2/;
 # Enable project local mode.
 __PACKAGE__->make_local_context();
+
+use lib 'vendor';
+use Amon2::Plugin::Model;
+__PACKAGE__->load_plugin('Model');
 
 my $schema = AppBootCamp::DB::Schema->instance;
 
@@ -22,9 +27,9 @@ sub db {
             schema       => $schema,
             connect_info => [@$conf],
             # I suggest to enable following lines if you are using mysql.
-            # on_connect_do => [
-            #     'SET SESSION sql_mode=STRICT_TRANS_TABLES;',
-            # ],
+             on_connect_do => [
+                 'SET SESSION sql_mode=STRICT_TRANS_TABLES;',
+             ],
         );
     }
     $c->{db};
